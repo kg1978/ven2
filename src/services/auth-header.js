@@ -1,10 +1,15 @@
-export default function authHeader() {
-  const user = JSON.parse(localStorage.getItem('user'));
+import localStoreHandler from '../common/LocalStoreHandler';
 
-  if (user && user.accessToken) {
-    return { Authorization: 'Bearer ' + user.accessToken }; // for Spring Boot back-end
-    //return { 'x-access-token': user.accessToken };       // for Node.js Express back-end
-  } else {
-    return {};
-  }
+export default function authHeader() {
+    const token = localStoreHandler.getUserToken();
+
+    console.log("authHeader token: " + token);
+
+    return {
+        Authorization: 'Bearer ' + token,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Private-Network": "true",
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Allow-Headers": "*"}; 
 }

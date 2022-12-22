@@ -1,85 +1,38 @@
-import React, { Component } from "react";
+import React from "react";
+import { Routes, Route } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import EventBus from "./common/EventBus";
-import AuthService from "./services/auth.service";
+import localStoreHandler from './common/LocalStoreHandler';
+import Layout from "./components/menu/Layout";
+import Login from "./components/common/Login.component";
+import Download from "./components/common/Download.component";
+import Home from './components/ven/Home.component';
 
-import Login from "./components/ven/login.component";
+function App() {
 
-import { Routes, Route } from 'react-router-dom';
-import About from './routes/About';
-import WebDesign from './routes/WebDesign';
-import SEO from './routes/SEO';
-import Services from './routes/Services';
-import Layout from './components/Layout';
-import Frontend from './routes/Frontend';
-import PHP from './routes/PHP';
-import Node from './routes/Node';
-import AboutWho from './routes/AboutWho';
-import OurValues from './routes/OurValues';
-import WebDev from './routes/WebDev';
+    const usertoken = localStoreHandler.getUserToken();
+    const userdata = localStoreHandler.getUserData();
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.logOut = this.logOut.bind(this);
-
-        this.state = {
-            showAdminBoard: false,
-            currentUser: undefined,
-        };
+    if (!usertoken) {
+        console.log("App No token");
+        return <Login />
     }
 
-    componentDidMount() {
-        const user = AuthService.getCurrentUser();
-
-        if (user) {
-            this.setState({
-                currentUser: user,
-                showAdminBoard: user.roles.includes("ROLE_ADMIN"),
-            });
-        }
-
-        EventBus.on("logout", () => {
-            this.logOut();
-        });
+    if (!userdata) {
+        console.log("App No userdata");
+        return <Download />
     }
 
-    componentWillUnmount() {
-        EventBus.remove("logout");
-    }
-
-    logOut() {
-        AuthService.logout();
-        this.setState({
-            showAdminBoard: false,
-            currentUser: undefined,
-        });
-    }
-
-    render() {
-        const { currentUser, showAdminBoard } = this.state;
-        return (
-            <>
-                <Routes>
-                    <Route path="/" element={<Layout />}>
-                        <Route index element={<Login />} />
-                        <Route path="about" element={<About />} />
-                        <Route path="services" element={<Services />} />
-                        <Route path="web-design" element={<WebDesign />} />
-                        <Route path="web-dev" element={<WebDev />} />
-                        <Route path="frontend" element={<Frontend />} />
-                        <Route path="node" element={<Node />} />
-                        <Route path="seo" element={<SEO />} />
-                        <Route path="php" element={<PHP />} />
-                        <Route path="who-we-are" element={<AboutWho />} />
-                        <Route path="our-values" element={<OurValues />} />
-                        <Route path="*" element={<p>Not found!</p>} />
-                    </Route>
-                </Routes>
-            </>
-        );
-    }
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="*" element={<p>A keresett oldal nem létezik!</p>} />
+                </Route>
+            </Routes>
+        </>
+    );
 };
 
 export default App;
