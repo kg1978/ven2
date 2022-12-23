@@ -1,6 +1,12 @@
-import { menuItems } from '../../menuItems2';
+//import { menuItems } from '../../menuItems2';
+import localStoreHandler from '../../common/LocalStoreHandler';
 import MenuItems from './MenuItems';
+
 const Navbar = () => {
+    const menuItems = localStoreHandler.getMenu();
+    console.log(menuItems);
+    //const menuItems = JSON.parse(menu);
+
   return (
     <nav>
       <ul className="menus">

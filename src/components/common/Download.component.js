@@ -59,7 +59,7 @@ export default class Download extends React.Component {
 
     downloadFinished() {
         if (this.state.joginit) {
-            //window.location.reload(true);
+            window.location.reload(true);
         }
     };
 

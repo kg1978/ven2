@@ -12,7 +12,9 @@ class JogService {
             .get(API_URL + 'init', { headers: authHeader()})
             .then(response => {
                if (response.data) {
-                    localStoreHandler.setUserData(JSON.stringify(response.data));
+                   localStoreHandler.setUserData(JSON.stringify(response.data));
+                   const menu = JSON.parse(localStoreHandler.getUserData()).menu;
+                   localStoreHandler.setMenu(JSON.stringify(menu));
                }
             });
     }
