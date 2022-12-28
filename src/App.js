@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import localStoreHandler from './common/LocalStoreHandler';
 import Layout from "./components/menu/Layout";
 import Login from "./components/common/Login.component";
+import Logout from "./components/common/Logout.component";
 import Download from "./components/common/Download.component";
 import Home from './components/ven/Home.component';
 
@@ -28,7 +29,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path="*" element={<p>A keresett oldal nem létezik!</p>} />
+                    <Route path="kijelentkezes" element={<Logout />} />
+                    <Route path="*" element={<p>A keresett oldal nem lÃ©tezik!</p>} />
                 </Route>
             </Routes>
         </>

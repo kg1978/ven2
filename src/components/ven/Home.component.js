@@ -1,8 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Home extends Component {
+import { withRouter } from '../../common/With-router';
+
+class Home extends React.Component {
 
   render() {
       return <h2>Home page content</h2>;
   }
 }
+
+export default withRouter(Home);
