@@ -9,15 +9,12 @@ const Header = () => {
     return (
     <header>
       <div className="nav-area">
-        <Link to="/" className="logo">
-          Logo
-        </Link>
         <Navbar />
         {token && (
             <div className="navbar-nav ml-auto">
                 <li className="nav-item">
                     <a href="/" className="nav-link" onClick={AuthService.logout}>
-                        LogOut
+                        Kijelentkezés
                     </a>
                 </li>
             </div>

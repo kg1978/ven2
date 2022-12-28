@@ -70,9 +70,10 @@ export default class Download extends React.Component {
     render() {
         return (
             <Container>
-                <h1>Kérem várjon amíg letöltõdnek a komponens adatok...</h1>
-                <div>
-                    Felhasználó adatainak betöltése
+                <div class="p-3 mb-4"></div>
+                <h2>KÃ©rem vÃ¡jon amÃ­g letÃ¶tÃ¶dnek a komponens adatok...</h2>
+                <div class="p-3 mb-4">
+                    FelhasznÃ¡lÃ³ adatainak betÃ¶ltÃ©se
                     <ProgressBar animated variant="success" now={this.state.jogp} />
                 </div>
                 {this.state.message && (
