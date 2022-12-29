@@ -36,12 +36,12 @@ export default function Login() {
     }
 
     return (
-        <div class="login-container">
-            <div class="p-2 mb-2 text-blue">VEN3</div>
-            <div class="login-frame">
+        <div className="login-container">
+            <div className="p-2 mb-2 text-blue">VEN3</div>
+            <div className="login-frame">
                 <h2>Kérem jelentkezzen be</h2>
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
+                <div className="row justify-content-center">
+                    <div className="col-md-6">
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Felhasználónév</Form.Label>
@@ -51,7 +51,7 @@ export default function Login() {
                             <Form.Label>Jelszó</Form.Label>
                             <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
                             </Form.Group>
-                            <div class="text-center mt-3">
+                            <div className="text-center mt-3">
                                 <Button variant="primary" type="submit" disabled={loading} >
                             {loading && (
                                 <span className="spinner-border spinner-border-sm"></span>

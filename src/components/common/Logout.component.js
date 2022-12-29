@@ -1,34 +1,39 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import Container from 'react-bootstrap/Container';
+import withRouter from '../../common/With-router';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { withRouter } from '../../common/With-router';
 import AuthService from '../../services/Auth.service';
 
-class Logout extends React.Component {   
+class Logout extends React.Component {     
+
     redirectToHome = () => {
-        const { history } = this.props;
-        if(history) history.push('/');
+        console.log("redirectToHome");
+        this.props.navigate("/");
     }
 
     logout = () => {
         AuthService.logout();
-        this.redirectToHome();
+        this.props.navigate("/");
+        window.location.reload(true);
     }
 
     render() {
         return (  
-            <Container>     
-                <ButtonToolbar>
-                    <Button bsStyle="success" bsSize="large" active onClick={this.logout}>
-                    Igen
-                    </Button>
-                    <Button bsStyle="danger" bsSize="large" active onClick={this.redirectToHome}>
-                    Nem
-                    </Button>
-                </ButtonToolbar>
+            <Container>
+                <div className="row">
+                    <div className="col text-center">
+                        <h2>Biztosan kijelentkezik?</h2>
+                        <Button variant="success" size="lg" onClick={this.logout}>
+                        Igen
+                        </Button>{' '}
+                        <Button variant="danger" size="lg" onClick={this.redirectToHome}>
+                        Nem
+                        </Button>
+                    </div>
+                </div>
             </Container>     
         )
     }

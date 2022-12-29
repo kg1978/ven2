@@ -1,6 +1,6 @@
 import React from "react";
 
-import { withRouter } from '../../common/With-router';
+import withRouter from '../../common/With-router';
 
 class Home extends React.Component {
 
