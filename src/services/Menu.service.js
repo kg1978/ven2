@@ -6,8 +6,8 @@ import localStoreHandler from '../common/LocalStoreHandler';
 const API_URL = "http://localhost:8080/api/service-menu/";
 
 /**
- * A localStorage alatt a "menu" kulccsal eltároljuk a user-hez tartozó menüt, 
- * miután a Login-t követõen letöltöttük. 
+ * A localStorage alatt a "menu" kulccsal eltÃ¡roljuk a user-hez tartozÃ³ menÃ¼t, 
+ * miutÃ¡n a Login-t kÃ¶vetÃ¶en letÃ¶ltÃ¶ttÃ©k. 
  */
 class MenuService {
     loadMenu() {

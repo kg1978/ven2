@@ -28,10 +28,11 @@ class AuthService {
 
     logout() {
         console.log("AuthService logout");
+        localStorage.clear();
 
-        localStoreHandler.removeUserToken();
-        localStoreHandler.removeMenu();
-        localStoreHandler.removeUserData();
+        //localStoreHandler.removeUserToken();
+        //localStoreHandler.removeMenu();
+        //localStoreHandler.removeUserData();
     }
 }
 

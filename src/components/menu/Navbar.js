@@ -4,8 +4,6 @@ import MenuItems from './MenuItems';
 
 const Navbar = () => {
     const menuItems = localStoreHandler.getMenu();
-    console.log(menuItems);
-    //const menuItems = JSON.parse(menu);
 
   return (
     <nav>

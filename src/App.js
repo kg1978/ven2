@@ -10,17 +10,19 @@ import Download from "./components/common/Download.component";
 import Home from './components/ven/Home.component';
 
 function App() {
+    console.log("App rendered");
 
     const usertoken = localStoreHandler.getUserToken();
     const userdata = localStoreHandler.getUserData();
-
+    const domaindata = localStoreHandler.getDomainOk();
+    
     if (!usertoken) {
         console.log("App No token");
         return <Login />
     }
 
-    if (!userdata) {
-        console.log("App No userdata");
+    if (!userdata || !domaindata) {
+        console.log("App No userdata or domaindata");
         return <Download />
     }
 
