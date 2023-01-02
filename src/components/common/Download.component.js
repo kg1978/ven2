@@ -1,6 +1,7 @@
+import React, { useState, useEffect } from "react";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/Container';
-import React, { useState, useEffect } from "react";
+import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import JogService from '../../services/Jog.service';
@@ -71,18 +72,18 @@ export default function Download () {
 
         download1();
         download2();
-    },[]);    
+    },[]);
    
     return (
         <Container>
             <div className="p-3 mb-4"></div>
             <h2>Kérem vájon amíg letötödnek a szükséges adatok...</h2>
             <div className="p-3 mb-4">
-                Felhasználó adatainak betöltése
+                Felhasználó adatainak betöltése <Spinner animation="border" variant="primary" />
                 <ProgressBar animated variant="success" now={jogp} />
             </div>
             <div className="p-3 mb-4">
-                Kódtáblák betöltése
+                Kódtáblák betöltése <Spinner animation="border" variant="primary" />
                 <ProgressBar animated variant="success" now={kodokp} />
             </div>
             {message && (

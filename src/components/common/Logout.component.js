@@ -23,16 +23,14 @@ class Logout extends React.Component {
     render() {
         return (  
             <Container>
-                <div className="row">
-                    <div className="col text-center">
-                        <h2>Biztosan kijelentkezik?</h2>
-                        <Button variant="success" size="lg" onClick={this.logout}>
+                <div className="container text-center col-12">
+                    <h2 className="p-4 mb-2">Biztosan kijelentkezik?</h2>
+                    <Button className="m-2" variant="success" size="lg" onClick={this.logout}>
                         Igen
-                        </Button>{' '}
-                        <Button variant="danger" size="lg" onClick={this.redirectToHome}>
+                    </Button>
+                    <Button className="m-2" variant="danger" size="lg" onClick={this.redirectToHome}>
                         Nem
-                        </Button>
-                    </div>
+                    </Button>
                 </div>
             </Container>     
         )

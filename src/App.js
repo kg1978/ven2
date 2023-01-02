@@ -9,6 +9,8 @@ import Logout from "./components/common/Logout.component";
 import Download from "./components/common/Download.component";
 import Home from './components/ven/Home.component';
 
+import Kerelem from './components/ven/okmany/Kerelem.component';
+
 function App() {
     console.log("App rendered");
 
@@ -32,6 +34,7 @@ function App() {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="kijelentkezes" element={<Logout />} />
+                    <Route path="kerelem-feldolg" element={<Kerelem />} />
                     <Route path="*" element={<p>A keresett oldal nem létezik!</p>} />
                 </Route>
             </Routes>
