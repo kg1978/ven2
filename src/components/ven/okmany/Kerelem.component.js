@@ -11,6 +11,8 @@ import AdminPanel from '../panels/AdminPanel.component'
 import SorszamPanel from '../panels/SorszamPanel.component';
 import KerelemHeader from './KerelemHeader.component';
 import KerelemWuXr from './KerelemWuXr.component';
+import KerelemUgyszam from './KerelemUgyszam.component';
+import KerelemKerelmezo from './KerelemKerelmezo.component';
 
 function KerelemFeldolgozas() {
     console.log("KerelemFeldolgozas rendered");
@@ -41,6 +43,8 @@ function KerelemFeldolgozas() {
     let kiadOkmAzon = "1A233WSR";
     let kiallitasEv = "2023";
     let kiallitasSorszam = "00001"
+    let wuXrStr = "wu";
+    let kerelmezo = "polgar";
 
     let wuXr = true;
 
@@ -50,20 +54,24 @@ function KerelemFeldolgozas() {
                 <div className="container text-center col-12">
                     <h1 className="pt-3">Kérelem</h1>
                 </div>
-                <hr/>  
+                <hr/>
                 <AdminPanel rogzUgyint={rogzUgyint} rogzDatum={rogzDatum} 
                         torlUgyint={torlUgyint} torlDatum={torlDatum}/>                   
                 <KerelemHeader feldAllapotNev={feldAllapotNev} aktOkmIrNev={aktOkmIrNev} 
                      aktOkmIrKod={aktOkmIrKod} kiadOkmAzon={kiadOkmAzon}/>
                 <hr/>
 
-                { wuXr && <KerelemWuXr selected=""/> }
+                { wuXr && <KerelemWuXr selected={wuXrStr}/> }
 
-                <SorszamPanel kiallitoSzervTxt="Rögzítő okmányiroda" kiallitoSzerv={aktOkmIrNev} 
-                        kiallitasEvSorszamTxt="Rögzítés éve/sorszáma" kiallitasEv={kiallitasEv} 
+                <SorszamPanel kiallitoSzervTxt="Rögzítő okmányiroda" kiallitoSzerv={aktOkmIrNev}
+                        kiallitasEvSorszamTxt="Rögzítés éve/sorszáma" kiallitasEv={kiallitasEv}
                         kiallitasSorszam={kiallitasSorszam}/>
-                    
-                <Row><Col>Kérelmező: </Col></Row>
+
+                { wuXr && <KerelemUgyszam kerelemUgyszamAzonosito=""/> }
+
+                <KerelemKerelmezo selected={kerelmezo}/>
+
+                <Row><Col></Col></Row>
             </Form>
         </Container>   
     );
