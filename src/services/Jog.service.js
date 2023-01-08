@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 import localStoreHandler from '../common/LocalStoreHandler';
+import {SERVER_URL} from '../common/Const';
 import authHeader from './Auth-header';
 
-const API_URL = 'http://localhost:8080/api/service-ven/jog/';
+const API_URL = SERVER_URL + "/api/service-ven/jog/";
 
 class JogService {
 

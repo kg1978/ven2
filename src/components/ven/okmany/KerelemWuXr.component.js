@@ -17,7 +17,7 @@ function KerelemWuXr(props) {
 
     return (
         <>
-            <Row className="mb-3">
+            <Row className="mb-1">
                 <Form.Label column sm={4} className="fw-bold">Elekt. ügyi. forrása:</Form.Label>
                 <Col sm={2}>
                     <Form.Check

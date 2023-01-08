@@ -13,6 +13,7 @@ import KerelemHeader from './KerelemHeader.component';
 import KerelemWuXr from './KerelemWuXr.component';
 import KerelemUgyszam from './KerelemUgyszam.component';
 import KerelemKerelmezo from './KerelemKerelmezo.component';
+import KerelemMuvelet from './KerelemMuvelet.component';
 
 function KerelemFeldolgozas() {
     console.log("KerelemFeldolgozas rendered");
@@ -24,7 +25,7 @@ function KerelemFeldolgozas() {
     const MODENORMAL = 1;
     const MODEXR = 2;
 
-    const [xrMode, setXrMode] = useState(false);
+    const [xrMode, setXrMode] = useState(true);
     const [specSzolgJog, setSpecSzolgJog] = useState(false);
     const [kategoriaEllJog, setKategoriaEllJog] = useState(false);
     const [pirRO54Enabled, setPirRO54Enabled] = useState(false);
@@ -44,9 +45,10 @@ function KerelemFeldolgozas() {
     let kiallitasEv = "2023";
     let kiallitasSorszam = "00001"
     let wuXrStr = "wu";
+    let ugyszamAzonosito = "";
     let kerelmezo = "polgar";
-
-    let wuXr = true;
+    let okmanytipus = "3";
+    let igenylesOka = "01";
 
     return (
         <Container>
@@ -61,17 +63,17 @@ function KerelemFeldolgozas() {
                      aktOkmIrKod={aktOkmIrKod} kiadOkmAzon={kiadOkmAzon}/>
                 <hr/>
 
-                { wuXr && <KerelemWuXr selected={wuXrStr}/> }
+                { xrMode && <KerelemWuXr selected={wuXrStr}/> }
 
                 <SorszamPanel kiallitoSzervTxt="Rögzítő okmányiroda" kiallitoSzerv={aktOkmIrNev}
                         kiallitasEvSorszamTxt="Rögzítés éve/sorszáma" kiallitasEv={kiallitasEv}
                         kiallitasSorszam={kiallitasSorszam}/>
 
-                { wuXr && <KerelemUgyszam kerelemUgyszamAzonosito=""/> }
+                { xrMode && <KerelemUgyszam ugyszamAzonosito={ugyszamAzonosito}/> }
 
                 <KerelemKerelmezo selected={kerelmezo}/>
-
-                <Row><Col></Col></Row>
+                <KerelemMuvelet okmanytipus={okmanytipus} igenylesOka={igenylesOka} xrMode={xrMode} 
+                    specSzolgJog={specSzolgJog} isKozpontiSzerv={isKozpontiSzerv} />
             </Form>
         </Container>   
     );

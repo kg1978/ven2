@@ -11,14 +11,14 @@ function SorszamPanel(props) {
 
     return (
         <>
-            <Row className="mb-3">
+            <Row className="mb-1">
                 <Form.Label column sm={4} className="fw-bold">{props.kiallitoSzervTxt}:</Form.Label>
                 <Col sm={5}><Form.Control id="sorszam.kiallitoSzerv" placeholder=""/></Col>
             </Row>
-            <Row className="mb-3">
+            <Row className="mb-1">
                 <Form.Label column sm={4} className="fw-bold">{props.kiallitasEvSorszamTxt}:</Form.Label>
                 <Col sm={2}><Form.Control id="sorszam.kiallitasEv" placeholder={props.kiallitasEv}/></Col>
-                <Col sm={1} className="text-center"><h1>/</h1></Col>
+                <Col sm={1} className="text-center"><h2 className="mb-1">/</h2></Col>
                 <Col sm={2}><Form.Control id="sorszam.kiallitasSorszam" placeholder={props.kiallitasSorszam}/></Col>
             </Row>
         </>

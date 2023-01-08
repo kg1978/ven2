@@ -1,7 +1,8 @@
 import axios from 'axios';
 import localStoreHandler from '../common/LocalStoreHandler';
+import {SERVER_URL} from '../common/Const';
 
-const API_URL = "http://localhost:8080/api/service-auth/signin";
+const API_URL = SERVER_URL + "/api/service-auth/signin";
 
 const headers = {
     "Access-Control-Allow-Origin": "*",
