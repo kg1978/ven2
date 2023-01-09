@@ -15,7 +15,7 @@ function KerelemHeader(props) {
             </Row>
             <Row>
                 <Col sm={3} className="fw-bold">Aktuális hely:</Col>
-                <Col sm={8}>{props.aktOkmIrNev} {props.aktOkmIrKod}</Col>                
+                <Col sm={8}>{props.aktOkmIrKod} {props.aktOkmIrNev}</Col>                
             </Row>
             <Row>
                 <Col sm={3} className="fw-bold">Kiadott okmány:</Col>

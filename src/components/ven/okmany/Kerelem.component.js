@@ -25,7 +25,7 @@ function KerelemFeldolgozas() {
     const MODENORMAL = 1;
     const MODEXR = 2;
 
-    const [xrMode, setXrMode] = useState(true);
+    const [xrMode, setXrMode] = useState(false);
     const [specSzolgJog, setSpecSzolgJog] = useState(false);
     const [kategoriaEllJog, setKategoriaEllJog] = useState(false);
     const [pirRO54Enabled, setPirRO54Enabled] = useState(false);
@@ -33,21 +33,24 @@ function KerelemFeldolgozas() {
     const [isAXXCP, setIsAXXCP] = useState(false);
     const [isKozpontiSzerv, setIsKozpontiSzerv] = useState(false);
 
+    const userData = JSON.parse(localStoreHandler.getUserData()).aktOI.data;
+    console.log("KerelemFeldolgozas userData" + userData);
+
     let rogzUgyint = "Kis Anna";
     let rogzDatum = "2022.01.01 10:59:59";
     let torlUgyint = "NAgy Anna";
     let torlDatum = "2023.01.01 10:59:59";
     
     let feldAllapotNev = "Folyamatban";
-    let aktOkmIrNev = "Központi OKM.";
-    let aktOkmIrKod = "AXXA34";
+    let aktOkmIrNev = userData.nev;
+    let aktOkmIrKod = userData.kod;
     let kiadOkmAzon = "1A233WSR";
     let kiallitasEv = "2023";
     let kiallitasSorszam = "00001"
     let wuXrStr = "wu";
     let ugyszamAzonosito = "";
     let kerelmezo = "polgar";
-    let okmanytipus = "3";
+    let okmanytipus = "1";
     let igenylesOka = "01";
 
     return (
